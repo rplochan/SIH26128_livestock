@@ -9,7 +9,10 @@ from sqlalchemy.orm import declarative_base, sessionmaker, Session
 from sqlalchemy.pool import NullPool
 from .rules import evaluate
 
-URL = os.getenv("DATABASE_URL", "sqlite:///./livestock.db").replace("postgres://", "postgresql://")
+import re
+_raw = os.getenv("DATABASE_URL", "sqlite:///./livestock.db").strip().strip("'\"")
+if _raw.startswith("psql "): _raw = _raw[5:].strip().strip("'\"")
+URL = re.sub(r"^postgres(ql)?(\+\w+)?://", "postgresql+psycopg2://", _raw)  # always use the psycopg2 driver
 SECRET = os.getenv("JWT_SECRET", "dev-secret")
 engine = create_engine(URL, poolclass=NullPool)  # NullPool suits serverless
 Session_ = sessionmaker(engine)
