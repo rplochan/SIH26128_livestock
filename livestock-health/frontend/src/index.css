@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap");
+body { font-family: Inter, system-ui, sans-serif; color: #e6efe9; min-height: 100vh; color-scheme: dark;
+  background: radial-gradient(50rem 28rem at 15% -10%, rgba(16,185,129,.18), transparent 60%), radial-gradient(40rem 26rem at 100% 0%, rgba(99,102,241,.13), transparent 55%), #0a0f0e fixed; }
+.serif { font-family: Fraunces, Georgia, serif; }
+.hero { background: radial-gradient(circle at 90% 10%, rgba(52,211,153,.22), transparent 45%), linear-gradient(135deg, #0f3d2e, #0b2a24 60%, #11212b);
+  border: 1px solid rgba(255,255,255,.08); box-shadow: 0 24px 48px -28px rgba(16,185,129,.5); }
+.btn { background: linear-gradient(135deg, #34d399, #10b981); color: #04120d; border-radius: 0.75rem; padding: 0.6rem 1.1rem;
+  font-size: 0.875rem; font-weight: 600; box-shadow: 0 6px 18px -8px rgba(52,211,153,.6); transition: transform .15s, box-shadow .15s; }
+.btn:hover { transform: translateY(-1px); box-shadow: 0 10px 22px -8px rgba(52,211,153,.7); }
+:focus-visible { outline: 2px solid #34d399; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
